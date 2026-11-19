@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Játéktér</title>
+</head>
+
+<body class="vh-100 overflow-hidden d-flex flex-column border border-primary border-3 text-white">
+    <header class="oldal-fejlec text-center p-3">
+        <h1 class="fw-normal pt-2">Játéktér</h1>
+    </header>
+
+    <section class="container-fluid flex-grow-1 min-h-0" aria-label="Pong játéktér">
+        <div class="row justify-content-center h-100">
+            <div class="col-12 col-xl-10 h-100">
+
+                <div class="palya-keret">
+
+                    <div class="felso-sav">
+                        <a href="index.html" class="logo" aria-label="Vissza a főoldalra"></a>
+                    </div>
+
+                    <div class="vonal" aria-hidden="true"></div>
+
+                    <div class="palya" id="palya">
+
+                        <div class="terfel terfel-bal">
+
+                            <div class="pontszam">
+                                <span class="visually-hidden">Bal oldali játékos pontszáma: </span>
+                                <span id="pont-bal">0</span>
+                            </div>
+
+                            <div class="eredmeny text-center" id="eredmeny">
+                                <h2 class="fw-normal">NYERTÉL</h2>
+
+                                <div class="d-flex flex-column align-items-center gap-2 mt-3">
+                                    <a href="jatekter.html" class="btn btn-outline-light rounded-pill gomb">Új
+                                        játék</a>
+                                    <a href="index.html" class="btn btn-outline-light rounded-pill gomb">Főoldal</a>
+                                </div>
+                            </div>
+
+                             <div class="uto uto-bal" id="uto-bal" aria-hidden="true"></div>
+
+                            </div>
+
+
+                            <div class="felezo" aria-hidden="true"></div>
+
+
+                            <div class="terfel terfel-jobb">
+
+                                <div class="pontszam">
+                                    <span class="visually-hidden">Jobb oldali játékos pontszáma: </span>
+                                    <span id="pont-jobb">0</span>
+                                </div>
+
+                                <div class="labda" id="labda" aria-hidden="true"></div>
+
+                                <div class="uto uto-jobb" id="uto-jobb" aria-hidden="true"></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vonal" aria-hidden="true"></div>
+                        <div class="also-sav" aria-hidden="true"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="oldal-lablec text-center small p-3">
+        © 2026 Minden jog fenntartva!
+    </footer>
+
+
+</body>
+
+</html>
