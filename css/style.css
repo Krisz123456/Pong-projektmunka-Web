@@ -8,3 +8,68 @@ body{
     font-weight: 400;
     background-color: black;
 }
+
+
+.palya-keret {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+
+.vonal {
+    height: 0.5rem;
+    background-color: white;
+}
+
+.logo {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.palya {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+}
+
+.terfel {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.felezo {
+    border-left: 0.6rem dashed white;
+}
+
+.pontszam {
+    padding: 0.5rem 1.25rem;
+    background-color: white;
+    color: black;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+
+
+.uto {
+    position: absolute;
+    top: 40%;
+    width: 0.6rem;
+    height: 5rem;
+    background-color: white;
+}
+
+.labda {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: white;
+}
