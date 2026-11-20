@@ -30,3 +30,28 @@ body{
     background-color: white;
 }
 
+.palya {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+}
+
+.terfel {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.felezo {
+    border-left: 0.6rem dashed white;
+}
+
+.pontszam {
+    padding: 0.5rem 1.25rem;
+    background-color: white;
+    color: black;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
