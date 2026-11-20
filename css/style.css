@@ -55,3 +55,21 @@ body{
     font-size: 1.75rem;
     font-weight: 600;
 }
+
+
+
+.uto {
+    position: absolute;
+    top: 40%;
+    width: 0.6rem;
+    height: 5rem;
+    background-color: white;
+}
+
+.labda {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: white;
+}
