@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Játéktér</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="vh-100 overflow-hidden d-flex flex-column border border-primary border-3 text-white">
+    <header class="text-center p-3">
+        <h1 class="fw-normal">Játéktér</h1>
+    </header>
+    <main class="container palya-keret">
+        <a href="index.html" class="logo m-3" aria-label="Főoldal"></a>
+        <div class="vonal"></div>
+
+        <div class="palya">
+            <div class="terfel">
+                <div class="pontszam align-self-end">
+                    <span id="pont-bal">0</span>
+                </div>
+
+                <div class="eredmeny text-center m-auto" id="eredmeny">
+                    <h2 class="fw-normal">NYERTÉL</h2>
+                    <a href="jatekter.html" class="btn btn-outline-light rounded-pill">Új játék</a>
+                    <a href="index.html" class="btn btn-outline-light rounded-pill">Főoldal</a>
+                </div>
+
+                <div class="uto start-0" id="uto-bal"></div>
+            </div>
+
+            <div class="felezo"></div>
+
+            <div class="terfel">
+                <div class="pontszam align-self-start">
+                    <span id="pont-jobb">0</span>
+                </div>
+
+                <div class="labda top-50 start-50 translate-middle" id="labda"></div>
+                <div class="uto end-0" id="uto-jobb"></div>
+            </div>
+        </div>
+
+        <div class="vonal"></div>
+    </main>
+
+    <footer class="text-center small p-3">
+        © 2026 Minden jog fenntartva!
+    </footer>
+
+</body>
+
+</html>
