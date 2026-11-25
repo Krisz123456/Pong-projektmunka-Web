@@ -34,6 +34,7 @@ body{
     flex: 1;
     display: flex;
     min-height: 0;
+    position: relative;
 }
 
 .terfel {
@@ -61,7 +62,7 @@ body{
 
 .uto {
     position: absolute;
-    top: 40%;
+    top: 0;
     width: 0.6rem;
     height: 5rem;
     background-color: white;
@@ -69,6 +70,8 @@ body{
 
 .labda {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
