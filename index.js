@@ -22,3 +22,19 @@ function start() {
         }, 16);
     }
 }
+
+function scoreListener() {
+    scoreInterval = setInterval(() => {
+        var pontBal = Jatek.getPontBal();
+        var pontJobb = Jatek.getPontJobb();
+
+        pontBalSpan.innerHTML = pontBal;
+        pontJobbSpan.innerHTML = pontJobb;
+
+        if (gameInterval != null && (pontBal >= celPont || pontJobb >= celPont)) {
+            stop();
+            jatek.labdaElrejt();
+            eredmenyElem.classList.remove("d-none");
+        }
+    }, 20);
+}
