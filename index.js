@@ -38,3 +38,12 @@ function scoreListener() {
         }
     }, 20);
 }
+
+function stop() {
+    clearInterval(gameInterval);
+    gameInterval = null;
+    clearInterval(scoreInterval);
+    scoreInterval = null;
+}
+
+start();
