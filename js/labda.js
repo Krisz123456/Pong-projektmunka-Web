@@ -41,4 +41,32 @@ class Labda {
     getSugar() {
         return this.#sugar;
     }
+
+
+     kozepre(palyaSzelesseg, palyaMagassag, irany) {
+        this.#x = palyaSzelesseg / 2;
+        this.#y = palyaMagassag / 2;
+
+        var szog = (Math.random() * 60 - 30) * Math.PI / 180;
+        this.#vx = irany * Math.cos(szog) * this.#sebesseg;
+        this.#vy = Math.sin(szog) * this.#sebesseg;
+
+        this.rajzol();
+    }
+
+    mozog(palyaMagassag) {
+        this.#x += this.#vx;
+        this.#y += this.#vy;
 }
+
+        this.rajzol();
+    }
+
+
+    visszaut(irany, relativ) {
+        relativ = Math.max(-1, Math.min(1, relativ));
+        var szog = relativ * 60 * Math.PI / 180;
+
+        this.#vx = irany * Math.cos(szog) * this.#sebesseg;
+        this.#vy = Math.sin(szog) * this.#sebesseg;
+    }
