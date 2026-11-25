@@ -93,5 +93,32 @@ class Jatek {
         }
     }
 
+    pontEllenorzes(p) {
+        var r = this.#labda.getSugar();
 
+        if (this.#labda.getX() - r <= 0) {
+            Jatek.#pontJobb++;
+            this.ujLabda(-1);
+        } else if (this.#labda.getX() + r >= p.width) {
+            Jatek.#pontBal++;
+            this.ujLabda(1);
+        }
+    }
+
+    labdaElrejt() {
+        this.#labda.elrejt();
+    }
+
+    static getPontBal() {
+        return Jatek.#pontBal;
+    }
+
+    static getPontJobb() {
+        return Jatek.#pontJobb;
+    }
+
+    static resetGame() {
+        Jatek.#pontBal = 0;
+        Jatek.#pontJobb = 0;
+    }
 }
