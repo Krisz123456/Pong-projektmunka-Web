@@ -1,37 +1,49 @@
-var utoBal = document.querySelector('#uto-bal');
-var utoJobb = document.querySelector('#uto-jobb');
+var NEHEZSEGEK = { lassu: 4, normal: 6, gyors: 9 };
 
-var sebesseg = 6;
-var gombok = {};
-var balY = 0;
-var jobbY = 0;
+var nehezseg = localStorage.getItem("nehezseg") || "normal";
+var celPont = parseInt(localStorage.getItem("pont")) || 10;
 
-var palya = utoBal.parentElement.getBoundingClientRect();
-var balKezdo = utoBal.getBoundingClientRect().top - palya.top;
-var jobbKezdo = utoJobb.getBoundingClientRect().top - palya.top;
+var gameInterval = null;
+var scoreInterval = null;
 
-document.addEventListener('keydown', function (e) {
-    gombok[e.key] = true;
-});
+var pontBalSpan = document.querySelector("#pont-bal");
+var pontJobbSpan = document.querySelector("#pont-jobb");
+var eredmenyElem = document.querySelector("#eredmeny");
 
-document.addEventListener('keyup', function (e) {
-    gombok[e.key] = false;
-});
+var jatek = new Jatek(".palya", NEHEZSEGEK[nehezseg] || 6);
 
-function ciklus() {
-    if (gombok['w']) balY -= sebesseg;
-    if (gombok['s']) balY += sebesseg;
-    if (gombok['ArrowUp']) jobbY -= sebesseg;
-    if (gombok['ArrowDown']) jobbY += sebesseg;
-
-    var magassag = palya.height - utoBal.offsetHeight;
-    balY = Math.max(-balKezdo, Math.min(magassag - balKezdo, balY));
-    jobbY = Math.max(-jobbKezdo, Math.min(magassag - jobbKezdo, jobbY));
-
-    utoBal.style.transform = 'translateY(' + balY + 'px)';
-    utoJobb.style.transform = 'translateY(' + jobbY + 'px)';
-
-    requestAnimationFrame(ciklus);
+function start() {
+    if (gameInterval == null) {
+        Jatek.resetGame();
+        jatek.indit();
+        scoreListener();
+        gameInterval = setInterval(() => {
+            jatek.lep();
+        }, 16);
+    }
 }
 
-ciklus();
+function scoreListener() {
+    scoreInterval = setInterval(() => {
+        var pontBal = Jatek.getPontBal();
+        var pontJobb = Jatek.getPontJobb();
+
+        pontBalSpan.innerHTML = pontBal;
+        pontJobbSpan.innerHTML = pontJobb;
+
+        if (gameInterval != null && (pontBal >= celPont || pontJobb >= celPont)) {
+            stop();
+            jatek.labdaElrejt();
+            eredmenyElem.classList.remove("d-none");
+        }
+    }, 20);
+}
+
+function stop() {
+    clearInterval(gameInterval);
+    gameInterval = null;
+    clearInterval(scoreInterval);
+    scoreInterval = null;
+}
+
+start();

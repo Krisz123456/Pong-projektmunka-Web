@@ -1,49 +1,22 @@
-var NEHEZSEGEK = { lassu: 4, normal: 6, gyors: 15 };
+class Fooldal {
+    #gomb;
 
-var nehezseg = localStorage.getItem("nehezseg") || "normal";
-var celPont = parseInt(localStorage.getItem("pont")) || 10;
+    constructor(gomb) {
+        this.setGomb(gomb);
+        this.#gomb.addEventListener("click", () => this.mentes());
+    }
 
-var gameInterval = null;
-var scoreInterval = null;
+    setGomb(gomb) {
+        this.#gomb = document.querySelector(gomb);
+    }
 
-var pontBalSpan = document.querySelector("#pont-bal");
-var pontJobbSpan = document.querySelector("#pont-jobb");
-var eredmenyElem = document.querySelector("#eredmeny");
+    mentes() {
+        var nehezseg = document.querySelector('input[name="nehezseg"]:checked').value;
+        var pont = document.querySelector('input[name="pontok"]:checked').value;
 
-var jatek = new Jatek(".palya", NEHEZSEGEK[nehezseg] || 6);
-
-function start() {
-    if (gameInterval == null) {
-        Jatek.resetGame();
-        jatek.indit();
-        scoreListener();
-        gameInterval = setInterval(() => {
-            jatek.lep();
-        }, 16);
+        localStorage.setItem("nehezseg", nehezseg);
+        localStorage.setItem("pont", pont);
     }
 }
 
-function scoreListener() {
-    scoreInterval = setInterval(() => {
-        var pontBal = Jatek.getPontBal();
-        var pontJobb = Jatek.getPontJobb();
-
-        pontBalSpan.innerHTML = pontBal;
-        pontJobbSpan.innerHTML = pontJobb;
-
-        if (gameInterval != null && (pontBal >= celPont || pontJobb >= celPont)) {
-            stop();
-            jatek.labdaElrejt();
-            eredmenyElem.classList.remove("d-none");
-        }
-    }, 20);
-}
-
-function stop() {
-    clearInterval(gameInterval);
-    gameInterval = null;
-    clearInterval(scoreInterval);
-    scoreInterval = null;
-}
-
-start();
+new Fooldal("#uj-jatek");
