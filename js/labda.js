@@ -57,7 +57,15 @@ class Labda {
     mozog(palyaMagassag) {
         this.#x += this.#vx;
         this.#y += this.#vy;
-}
+
+        if (this.#y - this.#sugar <= 0) {
+            this.#y = this.#sugar;
+            this.#vy = Math.abs(this.#vy);
+        }
+        if (this.#y + this.#sugar >= palyaMagassag) {
+            this.#y = palyaMagassag - this.#sugar;
+            this.#vy = -Math.abs(this.#vy);
+        }
 
         this.rajzol();
     }
@@ -70,3 +78,13 @@ class Labda {
         this.#vx = irany * Math.cos(szog) * this.#sebesseg;
         this.#vy = Math.sin(szog) * this.#sebesseg;
     }
+
+    rajzol() {
+        this.#element.style.transform =
+            "translate(" + (this.#x - this.#sugar) + "px, " + (this.#y - this.#sugar) + "px)";
+    }
+
+    elrejt() {
+        this.#element.classList.add("d-none");
+    }
+}
