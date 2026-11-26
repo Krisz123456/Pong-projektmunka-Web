@@ -6,3 +6,6 @@ document.body.appendChild(tesztLabdaElem);
 var tesztLabda = new Labda("#teszt-labda", 5);
 
 console.assert(tesztLabda.getSugar() === 10, "Hiba a konstruktorban, mert a sugár nem az elem szélességének fele!");
+
+tesztLabda.kozepre(800, 400, 1);
+console.assert(tesztLabda.getX() === 400 && tesztLabda.getY() === 200, "Hiba a kozepre() metódusban, mert nem a pálya közepére kerül a labda!");
