@@ -22,3 +22,7 @@ tesztLabda.visszaut(1, -1);
 for (var i = 0; i < 100; i++) {
     tesztLabda.mozog(400);
 }
+
+console.assert(tesztLabda.getY() - tesztLabda.getSugar() >= 0, "Hiba a mozog() metódusban, mert a labda kimegy a pálya felső szélén!");
+
+tesztLabdaElem.remove();
