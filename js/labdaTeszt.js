@@ -13,3 +13,12 @@ console.assert(tesztLabda.getX() === 400 && tesztLabda.getY() === 200, "Hiba a k
 tesztLabda.visszaut(1, 0);
 tesztLabda.mozog(400);
 console.assert(tesztLabda.getX() === 405, "Hiba a mozog() metódusban, mert a labda nem a sebességével mozdul el!");
+
+tesztLabda.visszaut(-1, 0);
+console.assert(tesztLabda.getVx() === -5, "Hiba a visszaut() metódusban, mert balra ütésnél nem negatív a vízszintes sebesség!");
+
+tesztLabda.kozepre(800, 400, 1);
+tesztLabda.visszaut(1, -1);
+for (var i = 0; i < 100; i++) {
+    tesztLabda.mozog(400);
+}
